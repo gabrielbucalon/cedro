@@ -1,0 +1,105 @@
+<ion-content padding>
+  <form (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-lg-12 col-lg-12 d-flex justify-content-center">
+        <h2 class="perfil-questinario"><b>PERFIL DO INVESTIDOR - QUESTIONÁRIO</b></h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 col-lg-12 d-flex justify-content-center mb-4">
+        <span>{{primeiraPergunta}}</span>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div *ngFor="let comportamentos of resultComportamento">
+        <label>
+          <input (ionSelect)='aluguel()' class="option-input radio" [value]='comportamentos' type="radio" name="perfilInvestidor.comportamento"
+            [(ngModel)]="perfilInvestidor.comportamento">
+          <span>{{comportamentos}}</span>
+        </label>
+      </div>
+    </div>
+    <hr>
+
+    <div class="row">
+      <div class="col-md-12 col-lg-12 d-flex justify-content-center mb-4">
+        <span>{{segundaPergunta}}</span>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div *ngFor="let tempos of resultTempoInvestimento">
+        <label>
+          <input (ionSelect)='aluguel()' class="option-input radio" [value]='tempos' type="radio" name="perfilInvestidor.tempoInvestimento"
+            [(ngModel)]="perfilInvestidor.tempoInvestimento">
+          <span>{{tempos}}</span>
+        </label>
+      </div>
+    </div>
+    <hr>
+
+    <div class="row">
+      <div class="col-md-12 col-lg-12 d-flex justify-content-center mb-4">
+        <span>{{terceiraPergunta}}</span>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div *ngFor="let anos of resultInvestimentoPorAno">
+        <label>
+          <input (ionSelect)='aluguel()' class="option-input radio" [value]='anos' type="radio" name="perfilInvestidor.investimentoPorAno"
+            [(ngModel)]="perfilInvestidor.investimentoPorAno">
+          <span>{{anos}}</span>
+        </label>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-12 col-lg-12 d-flex justify-content-center mb-4">
+        <span>4 - Qual sua familiaridade com os tipos de investimentos abaixo?</span>&nbsp;
+        <span>Leve em consideração o valor aplicado nos ultimos 2 anos.</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-lg-6">
+        <ion-item>
+          <ion-label floating>TITULOS DE RENDA FOCA OU TESOURO DIRETO</ion-label>
+          <ion-select name='titulosDeRenda' [(ngModel)]="perfilInvestidor.perguntas.titulosDeRenda">
+            <ion-option *ngFor='let titulos of resultQuartaPergunta'>{{titulos}}</ion-option>
+          </ion-select>
+        </ion-item>
+      </div>
+      <div class="col-md-6 col-lg-6">
+        <ion-item>
+          <ion-label floating>FUNDOS DE INVESTIMENTOS</ion-label>
+          <ion-select name='fundosDeInvestimentos' [(ngModel)]="perfilInvestidor.perguntas.fundosDeInvestimentos">
+            <ion-option *ngFor='let titulos of resultQuartaPergunta'>{{titulos}}</ion-option>
+          </ion-select>
+        </ion-item>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 col-lg-6">
+        <ion-item>
+          <ion-label floating>AÇÕES A VISTA</ion-label>
+          <ion-select name='acoesVista' [(ngModel)]="perfilInvestidor.perguntas.acoesVista">
+            <ion-option  *ngFor='let titulos of resultQuartaPergunta'>{{titulos}}</ion-option>
+          </ion-select>
+        </ion-item>
+      </div>
+      <div class="col-md-6 col-lg-6">
+        <ion-item>
+          <ion-label floating>ALUGUEL DE AÇÕES TERMOS OPÇÕES E FUTUROS</ion-label>
+          <ion-select name='aluguelAcoesTermos'  [(ngModel)]="perfilInvestidor.perguntas.aluguelAcoesTermos">
+            <ion-option (ionSelect)='aluguel()' *ngFor='let titulos of resultQuartaPergunta'>{{titulos}}</ion-option>
+          </ion-select>
+        </ion-item>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-end mt-4 mr-2  ">
+      <button type="button" class="volta mr-2" (click)='volta()'>VOLTAR</button>
+      <button type="submit" class="salvar-questionario" [disabled]="!salvar">SALVAR</button>
+    </div>
+  </form>
+</ion-content>

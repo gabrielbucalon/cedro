@@ -1,31 +1,51 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
 <ion-content padding>
   <div class="row d-flex justify-content-center">
     <img src="../../assets/imgs/paper-with-pen.PNG" alt="Termo de aceitação">
-    <!--  -->
   </div>
-  <div class="row test">
-    <div class="col-md-12 col-lg-12">
-      <span class="text-term-acceptance">Em até 48h daremos retorno sobre apertura da sua conta</span>
-    </div>
-    <div class="col-md-12 col-lg-12">
-      <span>Para receber recomendações de investimento e começar a investir,</span>
-    </div>
-    <div class="col-md-12 col-lg-12">
-      <span>Precisamos conhecer seu perfil de investidor.</span>
-    </div>
-    <div class="col-md-12 col-lg-12">
-      <span>São apenas 4 perguntas, que irão guiar todas as suas decisões de investimentos.</span>
-    </div>
-    <div class="col-md-12 col-lg-12">
-      <span>Gostaria de responder ao Perfil do investidor?</span>
-    </div>
+  <div class="row d-flex justify-content-center">
+    <span class="informacoes-recebidas"><b>INFORMAÇÕES RECEBIDAS! </b></span>
+  </div>
+  <div class="col-md-12 col-lg-12 d-flex justify-content-center">
+    <span class="text-term-acceptance ">Em até 48h daremos retorno sobre apertura da sua conta.</span>
+  </div>
+  <div class="col-md-12 col-lg-12 d-flex justify-content-center text-term-acceptance ">
+    <span>Para receber recomendações de investimento e começar a investir,</span>
+  </div>
+  <div class="col-md-12 col-lg-12 d-flex justify-content-center text-term-acceptance ">
+    <span>Precisamos conhecer seu perfil de investidor.</span>
+  </div>
+  <div class="col-md-12 col-lg-12 d-flex justify-content-center text-term-acceptance ">
+    <span>São apenas 4 perguntas, que irão guiar todas as suas decisões de investimentos.</span>
+  </div>
+  <div class="col-md-12 col-lg-12 d-flex justify-content-center investidor">
+    <span>Gostaria de responder ao Perfil do investidor?</span>
+  </div>
+  <div class="col-md-12 col-lg-12 d-flex justify-content-center">
+    <button type="button" class="btn btn-primary yes-no" (click)="termosModal.open()">NÃO</button>
+    <button type="button" class="btn btn-primary yes-no" (click)="perfilInvestidor()">SIM</button>
   </div>
 </ion-content>
+
+<modal #termosModal>
+  <ng-template #modalHeader>
+    <div class="d-flex justify-content-center ">
+      <h2 class="termo-modal"><b>TERMO</b></h2>
+    </div>
+  </ng-template>
+  <ng-template #modalBody>
+    <div class="row lorem ">
+      <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus perferendis ipsam, veritatis error beatae
+        vero officia, soluta dolor ad mollitia voluptatum numquam at rem maxime itaque aut quas illo. Neque?</span>
+    </div>
+    <hr>
+    <form (ngSubmit)="onSubmit()">
+      <div class="row d-flex justify-content-center">
+        <ion-checkbox (ionChange)='aceito()'  ([ngModel])='checkTermo'></ion-checkbox>&nbsp;
+        <span>Li e aceito os termos e condições acima</span>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <button type="submit" class="aceite-termo" [disabled]="!checkTermo">OK, ENTENDI</button>
+      </div>
+    </form>
+  </ng-template>
+</modal>

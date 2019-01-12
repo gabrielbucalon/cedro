@@ -1,3 +1,58 @@
-page-home {
-
+page-home{
+    .text-term-acceptance{
+        margin-bottom: 10px;
+    }
+    
+    .informacoes-recebidas{
+       color: #c5b993;
+       margin-bottom: 25px;
+    }
+    
+    .yes-no{
+        margin-left: 5px;
+        width: 100px;
+        height: 40px;
+    }
+    
+    .btn-primary{
+        background: #fff;
+        border: 1px solid #988189;
+        color: #8f8f8f;
+        font-weight: bold;
+        font-size: 12px;
+    }
+    
+    .btn-primary:hover{
+        background: #988189;
+        border: #988189;
+        color: #fff;
+        font-weight: bold;
+        font-size: 12px;
+    }
+    
+    .investidor {
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+    
+    .lorem{
+        margin-left: 5px;
+    }
+    
+    .aceite-termo{
+        width: 100px;
+        height: 40px;
+        background: #febc10;
+        border-radius: 10px;
+        color: #fff;
+        font-weight: bold;
+    }
+    
+    .termo-modal{
+        color: #927883;
+    }
+    
+    span{
+        color: #8f8f8f;
+    }
 }
